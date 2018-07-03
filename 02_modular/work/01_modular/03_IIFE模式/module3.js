@@ -7,7 +7,7 @@
 //IIFE模式
 
 (function (window) {
-  var msg = 'atguigu';
+  var msg = 'hello'; //此时msg外面看不到，无法修改
   function fn1() {
     console.log('fn1()' + msg);
   }

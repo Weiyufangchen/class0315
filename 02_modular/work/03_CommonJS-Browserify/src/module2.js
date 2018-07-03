@@ -21,11 +21,11 @@ function getNews(url) {
 
 function getComments(url) {
   console.log('发送请求，请求地址：' + url);
-  return 'commnetsData';
+  return 'commentsData';
 }
 
 const newsData = getNews(m1.newsUrl);
-const commnetsData = getComments(m1.commentsUrl);
+const commentsData = getComments(m1.commentsUrl);
 
 /*
   使用module.exports暴露模块
@@ -33,5 +33,5 @@ const commnetsData = getComments(m1.commentsUrl);
 
 module.exports = {
   newsData,
-  commnetsData
+  commentsData
 }

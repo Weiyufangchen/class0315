@@ -5,7 +5,7 @@ const showData = require('./module3');
 
 
 showData(m2.newsData);
-showData(m2.commnetsData);
+showData(m2.commentsData);
 },{"./module2":3,"./module3":4}],2:[function(require,module,exports){
 
 
@@ -43,11 +43,11 @@ function getNews(url) {
 
 function getComments(url) {
   console.log('发送请求，请求地址：' + url);
-  return 'commnetsData';
+  return 'commentsData';
 }
 
 const newsData = getNews(m1.newsUrl);
-const commnetsData = getComments(m1.commentsUrl);
+const commentsData = getComments(m1.commentsUrl);
 
 /*
   使用module.exports暴露模块
@@ -55,7 +55,7 @@ const commnetsData = getComments(m1.commentsUrl);
 
 module.exports = {
   newsData,
-  commnetsData
+  commentsData
 }
 },{"./module1":2}],4:[function(require,module,exports){
 

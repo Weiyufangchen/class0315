@@ -4,4 +4,4 @@ const showData = require('./module3');
 
 
 showData(m2.newsData);
-showData(m2.commnetsData);
+showData(m2.commentsData);

@@ -6,11 +6,11 @@
 (function (w, $) {
   function fn1() {
     console.log('fn1()');
-    $('body').css('background', 'pink');
+    $('body').css('background', 'skyblue');
   }
   function fn2() {
     console.log('fn2()');
   }
   window.fn1 = fn1;
   window.fn2 = fn2;
-})(window, jQuery)
+})(window, jQuery);

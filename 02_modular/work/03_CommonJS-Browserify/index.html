@@ -5,6 +5,12 @@
   <title>commonjs</title>
 </head>
 <body>
-  <script type="text/javascript" src="./build/bundle.js"></script>
+<!--
+不能直接引入main.js文件，不支持require、exports和module.exports语法
+  首先就会报错require is not defined
+
+借助工具，编译成浏览器认识的代码，browserify
+-->
+<script type="text/javascript" src="./build/bundle.js"></script>
 </body>
 </html>
