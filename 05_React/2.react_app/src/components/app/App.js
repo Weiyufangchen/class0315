@@ -2,44 +2,44 @@ import React, {Component} from 'react';
 import AddComment from '../addComment/AddComment';
 import CommentsList from '../commentsList/CommentsList';
 
-//定义组件
-class App extends Component {
-  //初始化数据状态
-  constructor (props) {
+
+//主组件
+class App extends Component{
+  constructor(props){
     super(props);
     this.state = {
       commentsList: [
-        {name: 'xiaowu', comment: '今天天气挺好'},
-        {name: 'xiaosan', comment: '666'}
+        {name: '项羽', comment: '有志者，事竟成，破釜沉舟，百二秦关终成楚。'},
+        {name: '勾践', comment: '苦心人，天不负，卧薪尝胆，三千越甲可吞吴。'}
       ]
-    };
-    //修正this指向
+    }
+  //  修改this指向（自定义函数的this为undefined）
     this.add = this.add.bind(this);
     this.del = this.del.bind(this);
   }
 
-  //添加评论的方法
-  add (comment){
-    //获取当前的状态
+
+  //定义添加评论方法，传递给AddComment组件
+  add (name, comment){
+    //拿到当前状态
     const {commentsList} = this.state;
-    //将要添加的数据添加进去
-    commentsList.unshift(comment);
+    //把输入框的数据添加到App组件状态上
+    commentsList.unshift({name, comment});
     //更新状态
     this.setState({commentsList});
   }
-  //删除评论的方法
-  del (index){
-    //获取当前的状态
+
+  //定义删除评论方法,传递给每个Item组件上的a标签
+  del(index){
     const {commentsList} = this.state;
-    //删除指定下标的评论
     commentsList.splice(index, 1);
-    //更新状态
     this.setState({commentsList})
   }
 
-  render() {
+  render(){
+    //拿到初始状态的commentsList
     const {commentsList} = this.state;
-    return (
+    return(
       <div>
         <header className="site-header jumbotron">
           <div className="container">
@@ -59,4 +59,5 @@ class App extends Component {
   }
 }
 
+//暴露出去
 export default App;
