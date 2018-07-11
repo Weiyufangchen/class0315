@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>05_components_composing</title>
+</head>
+<body>
+<div>
+  <h1>Hello React</h1>
+  <ul>
+    <li>Welcome A!</li>
+    <li>Welcome B!</li>
+    <li>Welcome C!</li>
+  </ul>
+</div>
+<hr>
+
+<div id="test"></div>
+
+<script src="../js/react.development.js"></script>
+<script src="../js/react-dom.development.js"></script>
+<script src="../js/babel.min.js"></script>
+
+<script type="text/babel">
+  /*
+   1. 拆分组件: 拆分界面, 抽取组件
+     * 单个标题组件: Welcome
+     * 应用组件: App
+   2. 分析确定传递数据和数据类型
+     * Welcome: props.name  string
+     * App: props.names    array
+   */
+
+  //主组件
+  class App extends React.Component{
+    render(){
+      //接收组件外传递的数据
+      const {data} = this.props;
+      return (
+        <div>
+          <h1>Hello React</h1>
+          <ul>
+            <List data={data}/>
+          </ul>
+        </div>
+      )
+    }
+  }
+  //定义list组件
+  class List extends React.Component{
+
+    render(){
+      const {data} = this.props;
+      return (
+        <div>
+          {data.map((item, index) => <li key={index}>{item}</li>)}
+        </div>
+      )
+    }
+  }
+
+  //数据
+  const data = ['jquery', 'vue', 'express'];
+
+  ReactDOM.render(<App data={data}/>, document.getElementById('test'));
+</script>
+</body>
+</html>
