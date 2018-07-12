@@ -21,7 +21,7 @@ class App extends Component{
   componentWillMount () {
     //订阅消息
     PubSub.subscribe('INDEX', (msg, data)=>{
-      console.log(msg, data);
+      console.log(msg, data); //'INDEX, 删除元素的下标'
       //删除数据
       const {commentsList} = this.state;
       commentsList.splice(data, 1);
