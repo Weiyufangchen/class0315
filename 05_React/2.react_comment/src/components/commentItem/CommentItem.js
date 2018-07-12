@@ -1,12 +1,15 @@
 import React, {Component} from 'react';
 
+import Pubsub from 'pubsub-js';
+
 class CommentItem extends Component {
 
   delComment =() =>{
     //拿到传递过来的item，index，del等等属性和方法
-    let {item, index, del} = this.props;
+    let {item, index} = this.props;
     if (window.confirm(`您确定要删除${item.name}的评论吗？`)){
-      del(index);
+      //发布消息
+      Pubsub.publish('INDEX', index);
     }
   };
 
